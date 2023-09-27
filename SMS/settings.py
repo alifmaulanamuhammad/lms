@@ -15,7 +15,21 @@ import posixpath
 import environ
 
 # Environment variables
-env = environ.Env()
+env = environ.Env(
+ DEBUG=(bool, False),
+    ENVIORNMENT=(str, 'PRODUCTION'),   
+)
+
+environ.Env.read_env()
+
+ENVIRONMENT= env.str('ENVIRONMENT')
+
+
+SECRET_KEY = env.str('SECRET_KEY')
+
+DEBUG = env.bool('DEBUG')
+
+ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOSTS'))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
