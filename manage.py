@@ -3,8 +3,6 @@
 import os
 import sys
 import environ
-from exc import execute_from_command_line(sys.argv)
-
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'SMS.settings')
     try:
